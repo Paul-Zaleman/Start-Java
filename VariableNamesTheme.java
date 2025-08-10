@@ -113,5 +113,43 @@ public class VariableNamesTheme {
         // количество чисел в строке
         int numbersInLine = 47;
         System.out.println("Количество чисел в строке: " + numbersInLine);
+
+        System.out.println("\n2. BOOLEAN-ПЕРЕМЕННЫЕ");
+
+        // сотни равны?
+        boolean isEqualHundreds = true;
+        System.out.println("Сотни равны? " + isEqualHundreds);
+
+        // компьютер включен?
+        boolean isOnComputer = true;
+        System.out.println("Компьютер включён? " + isOnComputer);
+
+        // есть равные цифры?
+        boolean hasEqualDigits = true;
+        System.out.println("Есть равные цифры? " + hasEqualDigits);
+
+        // служба создана?
+        boolean isCreatedService = false;
+        System.out.println("Служба создана? " + isCreatedService);
+
+        // файл пустой?
+        boolean isEmptyFile = true;
+        System.out.println("Файл пустой? " + isEmptyFile);
+
+        // соединение активное?
+        boolean isActiveConnection = true;
+        System.out.println("Соединение активное? " + isActiveConnection);
+
+        // новый?
+        boolean isNew = true;
+        System.out.println("Новый? " + isNew);
+
+        // электронная почта действительная?
+        boolean isValidEmail = true;
+        System.out.println("Электронная почта действительная? " + isValidEmail);
+
+        // имеются уникальные строки?
+        boolean hasUniqueLines = true;
+        System.out.println("Имеются уникальные строки? " + hasUniqueLines);
     }
 }

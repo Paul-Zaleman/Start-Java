@@ -151,5 +151,35 @@ public class VariableNamesTheme {
         // имеются уникальные строки?
         boolean hasUniqueLines = true;
         System.out.println("Имеются уникальные строки? " + hasUniqueLines);
+
+        System.out.println("\n3. АББРЕВИАТУРЫ ");
+
+        // старый universally unique identifier
+        String oldUuid = "qwe5-sdf6-vc75-tyu5";
+        System.out.println("Старый UUID: " + oldUuid);
+
+        // производитель оперативной памяти
+        String ramManufacturer = "Kingston";
+        System.out.println("Производитель оперативной памяти: " + ramManufacturer);
+
+        // емкость жесткого диска
+        int hddCapacityGb = 512;
+        System.out.println("Ёмкость жёсткого диска (ГБ): " + hddCapacityGb);
+
+        // определение термина протокола передачи гипертекста
+        String httpFullForm = "HyperText Transfer Protocol";
+        System.out.println("Определение HTTP: " + httpFullForm);
+
+        // сокращенный uniform resource locator
+        String shortUrl = "bit.ly/asd324";
+        System.out.println("Сокращённый URL: " + shortUrl);
+
+        // новый идентификатор клиента
+        String newClientId = "id_01";
+        System.out.println("Новый идентификатор клиента: " + newClientId);
+
+        // количество символов в american standard code for information interchange
+        int asciiCharCount = 128;
+        System.out.println("Количество символов в ASCII: " + asciiCharCount);
     }
 }

@@ -11,8 +11,8 @@ public class VariableNamesTheme {
         System.out.println("Сумма чисел: " + numberSum);
 
         // произведение цифр
-        int multiplyDigits = 5 * 5;
-        System.out.println("Произведение цифр: " + multiplyDigits);
+        int digitsMultiply = 5 * 5;
+        System.out.println("Произведение цифр: " + digitsMultiply);
 
         // максимальное число
         int maxNumber = 2147483647;
@@ -167,16 +167,16 @@ public class VariableNamesTheme {
         System.out.println("Ёмкость жёсткого диска (ГБ): " + hddCapacityGb);
 
         // определение термина протокола передачи гипертекста
-        String httpFullForm = "HyperText Transfer Protocol";
-        System.out.println("Определение HTTP: " + httpFullForm);
+        String httpProtocolName = "HyperText Transfer Protocol";
+        System.out.println("Определение HTTP: " + httpProtocolName);
 
         // сокращенный uniform resource locator
         String shortUrl = "bit.ly/asd324";
         System.out.println("Сокращённый URL: " + shortUrl);
 
         // новый идентификатор клиента
-        String newClientId = "id_01";
-        System.out.println("Новый идентификатор клиента: " + newClientId);
+        String newCid = "id_01";
+        System.out.println("Новый идентификатор клиента: " + newCid);
 
         // количество символов в american standard code for information interchange
         int asciiCharCount = 128;

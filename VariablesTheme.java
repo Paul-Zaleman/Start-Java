@@ -43,12 +43,61 @@ public class VariablesTheme {
         System.out.println("\nСтоимость товаров без скидки = " + basePriceRubBd + " руб.");
         BigDecimal discountAmountBd = pricePenRubBd
                 .multiply(priceBookRubBd)
-                .divide(new BigDecimal("100"))
+                .divide(BigDecimal.valueOf(100))
                 .setScale(2, RoundingMode.HALF_UP);
         System.out.println("Сумма скидки = " + discountAmountBd + " руб.");
         BigDecimal discountPriceBd = basePriceRubBd.subtract(discountAmountBd);
         System.out.println("Стоимость товаров со скидкой " + discountPriceBd + " руб.");
 
         System.out.println("\n3. ПЕРЕСТАНОВКА ЗНАЧЕНИЙ ЯЧЕЕК В ТАБЛИЦЕ");
+        int a1 = 2;
+        int b1 = 5;
+
+        // третья переменная
+        int tmp = a1;
+        a1 = b1;
+        b1 = tmp;
+        System.out.println("Метод: третья переменная");
+        System.out.println("Результат: А1 = " + a1 + ", B1 = " + b1);
+
+        // арифметический
+        a1 += b1;
+        b1 = a1 - b1;
+        a1 -= b1;
+        System.out.println("\nМетод: арифметический");
+        System.out.println("Результат: A1 = " + a1 + ", B1 = " + b1);
+
+        // побитовый
+        a1 ^= b1;
+        b1 ^= a1;
+        a1 ^= b1;
+        System.out.println("\nМетод: побитовый");
+        System.out.println("Результат: A1 = " + a1 + ", B1 = " + b1);
+
+        System.out.println("\n4. ДЕКОДИРОВАНИЕ СООБЩЕНИЯ");
+        int code1 = 1055;
+        int code2 = 1088;
+        int code3 = 1080;
+        int code4 = 1074;
+        int code5 = 1077;
+        int code6 = 1090;
+        System.out.printf("%-6d%-6d%-6d%-6d%-6d%-6d%n", code1, code2, code3, code4, code5, code6);
+        System.out.printf("%-6c%-6c%-6c%-6c%-6c%-6c%n", code1, code2, code3, code4, code5, code6);
+
+        System.out.println("\n5. АНАЛИЗ КОДА ТОВАРА");
+        int productCode = 123;
+        int productCategory = productCode / 100;
+        int productSubcategory = (productCode / 10) % 10;
+        int packageType = productCode % 10;
+        int checksum = productCategory + productSubcategory + packageType;
+        int verificationCode = productCategory * productSubcategory * packageType;
+        System.out.println("Код товара: " + productCode);
+        System.out.println("     категория товара - " + productCategory);
+        System.out.println("     подкатегория - " + productSubcategory);
+        System.out.println("     тип упаковки - " + packageType);
+        System.out.println("Контрольная сумма = " + checksum);
+        System.out.println("Проверочный код = " + verificationCode);
+
+        System.out.println("\n6. ТЕСТИРОВАНИЕ ДАТЧИКОВ ПЕРЕД ЗАПУСКОМ РАКЕТЫ");
     }
 }

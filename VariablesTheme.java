@@ -99,5 +99,44 @@ public class VariablesTheme {
         System.out.println("Проверочный код = " + verificationCode);
 
         System.out.println("\n6. ТЕСТИРОВАНИЕ ДАТЧИКОВ ПЕРЕД ЗАПУСКОМ РАКЕТЫ");
+        byte temperature = Byte.MAX_VALUE;
+        System.out.println("""
+                [Температура, °C]:
+                  Исходное: %d
+                  +1: %d
+                  -1: %d
+                """.formatted(temperature, ++temperature, --temperature));
+
+        short pressure = Short.MAX_VALUE;
+        System.out.println("""
+                [Давление, Па]:
+                  Исходное: %d
+                  +1: %d
+                  -1: %d
+                """.formatted(pressure, ++pressure, --pressure));
+
+        char systemCode = Character.MAX_VALUE;
+        System.out.println("""
+                [Код состояния, ]:
+                  Исходное: %d
+                  +1: %d
+                  -1: %d
+                """.formatted((int) systemCode, (int) (++systemCode), (int) (--systemCode)));
+
+        int distance = Integer.MAX_VALUE;
+        System.out.println("""
+                [Расстояние, м]:
+                  Исходное: %d
+                  +1: %d
+                  -1: %d
+                """.formatted(distance, ++distance, --distance));
+
+        long time = Long.MAX_VALUE;
+        System.out.println("""
+                [Время, мс]:
+                  Исходное: %d
+                  +1: %d
+                  -1: %d
+                """.formatted(time, ++time, --time));
     }
 }

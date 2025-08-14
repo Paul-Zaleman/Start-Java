@@ -1,8 +1,12 @@
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 
 public class VariablesTheme {
     public static void main(String[] args) {
+        final long startNano = System.nanoTime();
+        final LocalTime startTime = LocalTime.now();
         System.out.println("1. ВЫВОД ASCII-ГРАФИКИ");
 
         // первый способ (с помощью конкатенации)
@@ -138,5 +142,47 @@ public class VariablesTheme {
                   +1: %d
                   -1: %d
                 """.formatted(time, ++time, --time));
+
+        System.out.println("\n7. ВЫВОД ПАРАМЕТРОВ JVM И ОС");
+        Runtime runtime = Runtime.getRuntime();
+        long mb = 1024L * 1024L;
+
+        // характеристики JVM
+        int cores = runtime.availableProcessors();
+        long totalMb = runtime.totalMemory() / mb;
+        long freeMemory = runtime.freeMemory() / mb;
+        long usedMemory = (totalMb - freeMemory) / mb;
+        long maxMemory = runtime.maxMemory() / mb;
+        System.out.printf("""
+            Характеристики JVM
+            Доступное число ядер: %d
+            Выделенная память (МБ): %d
+            Свободная память (Мб): %d
+            Используемая память (Мб): %d
+            Максимально доступная для выделения память (Мб): %d
+                """, cores, totalMb, freeMemory, usedMemory, maxMemory);
+
+        // параметры ОС
+        String osDisk = System.getProperty("user.home").charAt(0) + ":";
+        String osVersion = System.getProperty("os.name") + " " + System.getProperty("os.version");
+        String javaVersion = System.getProperty("java.version");
+        String pathSeparator = System.getProperty("file.separator");
+
+        // Вывод характеристик ОС
+        System.out.printf("""
+                \nСистемный диск: %s
+                Версия ОС: %s
+                Версия Java: %s
+                Символ разделения пути (сепаратор): %s
+                """, osDisk, osVersion, javaVersion, pathSeparator);
+
+        System.out.println("\n8. ЗАМЕР ВРЕМЕНИ РАБОТЫ КОДА");
+        LocalTime endTime = LocalTime.now();
+        long endNano = System.nanoTime();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss.SSS");
+        System.out.println("Старт проверки: " + startTime.format(formatter));
+        System.out.println("Финиш проверки: " + endTime.format(formatter));
+        double timeSeconds = (endNano - startNano) / 1e9;
+        System.out.printf("Время работы: %.3f сек\n", timeSeconds);
     }
 }

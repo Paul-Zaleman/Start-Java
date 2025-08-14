@@ -21,5 +21,21 @@ public class IfElseStatementTheme {
         } else {
             System.out.println("Ваш рост выше 1.8 м");
         }
+
+        System.out.println("\n2. ПОИСК БОЛЬШЕГО ЧИСЛА ШАГОВ");
+        int yesterdayStepCount = 11165;
+        int todayStepCount = 5920;
+        System.out.printf("Вчера: %d, сегодня: %d%n", yesterdayStepCount, todayStepCount);
+
+        if (yesterdayStepCount > todayStepCount) {
+            System.out.println("Вчера больше");
+        } else if (yesterdayStepCount < todayStepCount) {
+            System.out.println("Сегодня больше");
+        } else {
+            System.out.println("Поровну");
+        }
+
+        double averageStepCount = (yesterdayStepCount + todayStepCount) / 2.0;
+        System.out.printf("Cреднее %.2f", averageStepCount);
     }
 }

@@ -29,53 +29,53 @@ public class VariablesTheme {
         System.out.println("\n2. РАСЧЕТ СТОИМОСТИ ТОВАРА");
 
         // с использованием float без округления результата
-        float pricePenRub = 105.5f;
-        float priceBookRub = 235.23f;
+        float penPriceRub = 105.5f;
+        float bookPriceRub = 235.23f;
         float discountPercent = 11.0f;
-        float basePriceRub = pricePenRub + priceBookRub;
-        System.out.println("Стоимость товаров без скидки = " + basePriceRub + " руб.");
-        float discountAmount = (pricePenRub * priceBookRub) / 100;
-        System.out.println("Сумма скидки = " + discountAmount + " руб.");
+        float basePriceRub = penPriceRub + bookPriceRub;
+        float discountAmount = basePriceRub * discountPercent / 100f;
         float discountPrice = basePriceRub - discountAmount;
+        System.out.println("Стоимость товаров без скидки = " + basePriceRub + " руб.");
+        System.out.println("Сумма скидки = " + discountAmount + " руб.");
         System.out.println("Стоимость товаров со скидкой " + discountPrice + " руб.");
 
         // с использованием BigDecimal с округлением до двух знаков после запятой
-        BigDecimal pricePenRubBd = new BigDecimal("105.5");
-        BigDecimal priceBookRubBd = new BigDecimal("235.23");
+        BigDecimal penPriceRubBd = new BigDecimal("105.5");
+        BigDecimal bookPriceRubBd = new BigDecimal("235.23");
         BigDecimal discountPercentBd = new BigDecimal("11.0");
-        BigDecimal basePriceRubBd = pricePenRubBd.add(priceBookRubBd).setScale(2, RoundingMode.HALF_UP);
-        System.out.println("\nСтоимость товаров без скидки = " + basePriceRubBd + " руб.");
-        BigDecimal discountAmountBd = pricePenRubBd
-                .multiply(priceBookRubBd)
-                .divide(BigDecimal.valueOf(100))
+        BigDecimal basePriceRubBd = penPriceRubBd.add(bookPriceRubBd);
+        BigDecimal discountAmountBd = basePriceRubBd
+                .multiply(discountPercentBd)
+                .divide(BigDecimal.valueOf(100), 2, RoundingMode.HALF_UP);
+        BigDecimal discountPriceBd = basePriceRubBd
+                .subtract(discountAmountBd)
                 .setScale(2, RoundingMode.HALF_UP);
+
+        System.out.println("\nСтоимость товаров без скидки = " +
+                basePriceRubBd.setScale(2, RoundingMode.HALF_UP) + " руб.");
         System.out.println("Сумма скидки = " + discountAmountBd + " руб.");
-        BigDecimal discountPriceBd = basePriceRubBd.subtract(discountAmountBd);
-        System.out.println("Стоимость товаров со скидкой " + discountPriceBd + " руб.");
+        System.out.println("Стоимость товаров со скидкой = " + discountPriceBd + " руб.");
 
         System.out.println("\n3. ПЕРЕСТАНОВКА ЗНАЧЕНИЙ ЯЧЕЕК В ТАБЛИЦЕ");
         int a1 = 2;
         int b1 = 5;
 
-        // третья переменная
+        System.out.println("Метод: третья переменная");
         int tmp = a1;
         a1 = b1;
         b1 = tmp;
-        System.out.println("Метод: третья переменная");
         System.out.println("Результат: А1 = " + a1 + ", B1 = " + b1);
 
-        // арифметический
+        System.out.println("\nМетод: арифметический");
         a1 += b1;
         b1 = a1 - b1;
         a1 -= b1;
-        System.out.println("\nМетод: арифметический");
         System.out.println("Результат: A1 = " + a1 + ", B1 = " + b1);
 
-        // побитовый
+        System.out.println("\nМетод: побитовый");
         a1 ^= b1;
         b1 ^= a1;
         a1 ^= b1;
-        System.out.println("\nМетод: побитовый");
         System.out.println("Результат: A1 = " + a1 + ", B1 = " + b1);
 
         System.out.println("\n4. ДЕКОДИРОВАНИЕ СООБЩЕНИЯ");
@@ -144,22 +144,22 @@ public class VariablesTheme {
                 """.formatted(time, ++time, --time));
 
         System.out.println("\n7. ВЫВОД ПАРАМЕТРОВ JVM И ОС");
-        Runtime runtime = Runtime.getRuntime();
+        Runtime rt = Runtime.getRuntime();
         long mb = 1024L * 1024L;
 
         // характеристики JVM
-        int cores = runtime.availableProcessors();
-        long totalMb = runtime.totalMemory() / mb;
-        long freeMemory = runtime.freeMemory() / mb;
-        long usedMemory = (totalMb - freeMemory) / mb;
-        long maxMemory = runtime.maxMemory() / mb;
+        int cores = rt.availableProcessors();
+        long totalMb = rt.totalMemory() / mb;
+        long freeMemory = rt.freeMemory() / mb;
+        long usedMemory = totalMb - freeMemory;
+        long maxMemory = rt.maxMemory() / mb;
         System.out.printf("""
-            Характеристики JVM
-            Доступное число ядер: %d
-            Выделенная память (МБ): %d
-            Свободная память (Мб): %d
-            Используемая память (Мб): %d
-            Максимально доступная для выделения память (Мб): %d
+                Характеристики JVM
+                Доступное число ядер: %d
+                Выделенная память (МБ): %d
+                Свободная память (Мб): %d
+                Используемая память (Мб): %d
+                Максимально доступная для выделения память (Мб): %d
                 """, cores, totalMb, freeMemory, usedMemory, maxMemory);
 
         // параметры ОС

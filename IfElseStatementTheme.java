@@ -138,5 +138,62 @@ public class IfElseStatementTheme {
         System.out.println("\nСумма вклада: " + depositAmountRubBd);
         System.out.println("Сумма начисленных %: " + interestEarnedBd);
         System.out.println("Итоговая сумма с %: " + totalSumRubBd);
+
+        System.out.println("\n7. ОПРЕДЕЛЕНИЕ ОЦЕНКИ ПО ПРЕДМЕТАМ");
+        double historyPercent = 59.0;
+        double programmingPercent = 92.0;
+
+        // оценки по истории
+        int historyGrade;
+        if (historyPercent <= 60) {
+            historyGrade = 2;
+        } else if (historyPercent > 91) {
+            historyGrade = 5;
+        } else if (historyPercent > 73) {
+            historyGrade = 4;
+        } else {
+            historyGrade = 3;
+        }
+
+        // оценки по программированию
+        int programmingGrade;
+        if (programmingPercent <= 60) {
+            programmingGrade = 2;
+        } else if (programmingPercent > 91) {
+            programmingGrade = 5;
+        } else if (programmingPercent > 73) {
+            programmingGrade = 4;
+        } else {
+            programmingGrade = 3;
+        }
+
+        System.out.println("История: " + historyGrade);
+        System.out.println("Программирование: " + programmingGrade);
+
+        double averageGrade = (historyGrade + programmingGrade) / 2.0;
+        double averagePercent = (historyPercent + programmingPercent) / 2.0;
+        System.out.println("Средний балл = " + averageGrade);
+        System.out.println("Средний процент = " + averagePercent);
+
+        System.out.println("\n8. РАСЧЕТ ГОДОВОЙ ПРИБЫЛИ");
+        BigDecimal monthlyIncomeRubBd = new BigDecimal("13025.233");
+        BigDecimal rentExpenseRubBd = new BigDecimal("5123.018");
+        BigDecimal productionExpenseRubBd = new BigDecimal("9001.729");
+        
+        // расходы в месяц
+        BigDecimal expensesMonthRubBd = rentExpenseRubBd.add(productionExpenseRubBd);
+
+        // доход в месяц
+        BigDecimal profitMonthRubBd = monthlyIncomeRubBd.subtract(expensesMonthRubBd);
+
+        // доход в год
+        BigDecimal profitYearRubBd = profitMonthRubBd.multiply(new BigDecimal("12"));
+
+        String sign = "";
+        if (profitYearRubBd.compareTo(BigDecimal.ZERO) > 0) {
+            sign = "+";
+        }
+
+        System.out.println("Прибыль за год: " + sign + profitYearRubBd + "руб.");
     }
 }

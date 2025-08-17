@@ -42,7 +42,7 @@ public class IfElseStatementTheme {
         System.out.printf("Cреднее %.2f", averageStepCount);
 
         System.out.println("\n\n3. ПРОВЕРКА КОЛИЧЕСТВА ГОСТЕЙ");
-        int guestCount = 2;
+        int guestCount = -1;
         if (guestCount == 0) {
             System.out.println("Пока никто не записался на мероприятие!");
         } else if (guestCount > 0) {
@@ -72,27 +72,24 @@ public class IfElseStatementTheme {
         char firstChar = nickname.charAt(0);
 
         // с помощью проверки символа на его вхождение в диапазон кодов
-        String description;
+        String description = "символа";
         if (firstChar >= 'a' && firstChar <= 'z') {
             description = "маленькой буквы";
         } else if (firstChar >= 'A' && firstChar <= 'Z') {
             description = "большой буквы";
         } else if (firstChar >= '0' && firstChar <= '9') {
             description = "цифры";
-        } else {
-            description = "символа";
         }
         System.out.printf("Имя %s начинается с %s '%c'%n", nickname, description, firstChar);
 
         // с помощью методов класса Character, определяющих символы
+        description = "символа";
         if (Character.isLowerCase(firstChar)) {
             description = "маленькой буквы";
         } else if (Character.isUpperCase(firstChar)) {
             description = "большой буквы";
         } else if (Character.isDigit(firstChar)) {
             description = "цифры";
-        } else {
-            description = "символа";
         }
         System.out.printf("Имя %s начинается с %s '%c'%n", nickname, description, firstChar);
 
@@ -157,29 +154,25 @@ public class IfElseStatementTheme {
 
         System.out.println("\n7. ОПРЕДЕЛЕНИЕ ОЦЕНКИ ПО ПРЕДМЕТАМ");
         double historyPercent = 59.0;
-        int historyGrade;
+        int historyGrade = 2;
         if (historyPercent >= 92) {
             historyGrade = 5;
         } else if (historyPercent >= 74) {
             historyGrade = 4;
         } else if (historyPercent >= 61) {
             historyGrade = 3;
-        } else {
-            historyGrade = 2;
         }
 
         double programmingPercent = 92.0;
-        int programmingGrade;
+        int programmingGrade = 2;
         if (programmingPercent >= 92) {
             programmingGrade = 5;
         } else if (programmingPercent >= 74) {
             programmingGrade = 4;
         } else if (programmingPercent >= 61) {
             programmingGrade = 3;
-        } else {
-            programmingGrade = 2;
         }
-
+        
         System.out.println("История: " + historyGrade);
         System.out.println("Программирование: " + programmingGrade);
 

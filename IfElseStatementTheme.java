@@ -1,3 +1,6 @@
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
 public class IfElseStatementTheme {
     public static void main(String[] args) {
         System.out.println("1. ПЕРЕВОД ПСЕВДОКОДА НА ЯЗЫК JAVA");
@@ -78,9 +81,9 @@ public class IfElseStatementTheme {
 
         System.out.println("\n5. ИНВЕНТАРИЗАЦИЯ");
         int dbSerialNumber = 123;
-        int compNumber = 121;
+        int compNumber = 103;
         if (dbSerialNumber == compNumber) {
-            System.out.printf("[№%d]: компьютер на 3-м этаже в кабинете 2%n", compNumber);
+            System.out.printf("[№%d]: компьютер на 3-м этаже в кабинете 2", compNumber);
         } else {
             int dbHundreds = dbSerialNumber / 100;
             int dbTens = (dbSerialNumber / 10) % 10;
@@ -101,8 +104,39 @@ public class IfElseStatementTheme {
                     Фактический: [№%s]
                         """.formatted(dbSerialNumber, factNumber));
             } else {
-                System.out.printf("[№%d]: оборудование не идентифицировано%n", compNumber);
+                System.out.printf("[№%d]: оборудование не идентифицировано", compNumber);
             }
         }
+
+        System.out.println("6. ПОДСЧЕТ НАЧИСЛЕННЫХ БАНКОМ %");
+        float depositAmountRub = 321123.79f;
+        float rate;
+        if (depositAmountRub < 100_000) {
+            rate = 0.05f;
+        } else if (depositAmountRub >= 100_000 && depositAmountRub < 300_000) {
+            rate = 0.07f;
+        } else {
+            rate = 0.10f;
+        }
+        float interestEarned = depositAmountRub * rate;
+        float totalSumRub = depositAmountRub + interestEarned;
+        System.out.println("Сумма вклада = " + depositAmountRub);
+        System.out.println("Сумма начисленного % = " + interestEarned);
+        System.out.println("Итоговая сумма с % = " + totalSumRub);
+
+        BigDecimal depositAmountRubBd = new BigDecimal("321123.79");
+        BigDecimal rateBd;
+        if (depositAmountRubBd.compareTo(new BigDecimal("100000")) < 0) {
+            rateBd = new BigDecimal("0.05");
+        } else if (depositAmountRubBd.compareTo(new BigDecimal("300000")) <= 0) {
+            rateBd = new BigDecimal("0.07");
+        } else {
+            rateBd = new BigDecimal("0.10");
+        }
+        BigDecimal interestEarnedBd = depositAmountRubBd.multiply(rateBd).setScale(2, RoundingMode.HALF_UP);
+        BigDecimal totalSumRubBd = depositAmountRubBd.add(interestEarnedBd).setScale(2, RoundingMode.HALF_UP);
+        System.out.println("\nСумма вклада: " + depositAmountRubBd);
+        System.out.println("Сумма начисленных %: " + interestEarnedBd);
+        System.out.println("Итоговая сумма с %: " + totalSumRubBd);
     }
 }

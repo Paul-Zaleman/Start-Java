@@ -47,5 +47,26 @@ public class CyclesTheme {
             }
             System.out.println();
         }
+
+        System.out.println("\n4. ВЫВОД ЧИСЕЛ В НЕСКОЛЬКО СТРОК");
+        int count = 0;
+        for (int i = 1; i < 24; i++) {
+            if (i % 2 != 0) {
+                System.out.printf("%3d", i);
+                count++;
+
+                if (count % 5 == 0) {
+                    System.out.println();
+                }
+            }
+        }
+
+        int remainder = count % 5;
+        if (remainder != 0) {
+            for (int i = remainder; i < 5; i++) {
+                System.out.printf("%3d", 0);
+            }
+            System.out.println();
+        }
     }
 }

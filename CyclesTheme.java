@@ -17,7 +17,6 @@ public class CyclesTheme {
 
         System.out.println("\n2. ВЫВОД ГЕОМЕТРИЧЕСКИХ ФИГУР");
         int rows = 5;
-
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < 9; j++) {
                 System.out.print("-");
@@ -31,6 +30,20 @@ public class CyclesTheme {
             System.out.print(" ");
             for (int j = 0; j <= i * 2; j++) {
                 System.out.print("^");
+            }
+            System.out.println();
+        }
+
+        System.out.println("\n3. ВЫВОД ТАБЛИЦЫ УМНОЖЕНИЯ");
+        System.out.print("   |");
+        for (int i = 2; i <= 9; i++) {
+            System.out.printf("%4d", i);
+        }
+        System.out.println("\n---+---------------------------------");
+        for (int i = 2; i <= 9; i++) {
+            System.out.printf("%2d |", i);
+            for (int j = 2; j <= 9; j++) {
+                System.out.printf("%4d", i * j);
             }
             System.out.println();
         }

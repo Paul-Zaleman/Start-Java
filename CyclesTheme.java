@@ -68,5 +68,60 @@ public class CyclesTheme {
             }
             System.out.println();
         }
+
+        System.out.println("\n5. ВЫВОД ЧИСЕЛ МЕЖДУ MIN И MAX");
+        int a = 10;
+        int b = 5;
+        int c = -1;
+        int min = a;
+        int max = a;
+        if (b < min) {
+            min = b;
+        }
+        if (c < min) {
+            min = c;
+        }
+        if (b > max) {
+            max = b;
+        }
+        if (c > max) {
+            max = c;
+        }
+        for (int i = max - 1; i > min; i--) {
+            System.out.print(i + " ");
+        }
+
+        System.out.println("\n\n6. РАЗНЫЕ ОПЕРАЦИИ НАД ЧИСЛОМ");
+        int originalNumber = 2234321;
+        int num = originalNumber;
+        int reversed = 0;
+        int countTwos = 0;
+
+        while (originalNumber > 0) {
+            int digit = originalNumber % 10;
+            if (digit == 2) {
+                countTwos++;
+            }
+            reversed = reversed * 10 + digit;
+            originalNumber /= 10;
+        }
+
+        boolean isPalindrome = (originalNumber == reversed);
+        String evenTwos = (countTwos % 2 == 0) ? "чётным" : "нечётным";
+        String palindrome = isPalindrome ? "палиндром" : "не палиндром";
+        System.out.printf("%d - %s с %s (%d) количеством двоек%n", num, palindrome, evenTwos, countTwos);
+
+        System.out.println("\n7. ПРОВЕРКА СЧАСТЛИВОГО ЧИСЛА");
+        int number = 101002;
+        int firstThreeNum = number / 1000;
+        int lastThreeNum = number % 1000;
+        int sumFirstThreeNum = (firstThreeNum / 100) + (firstThreeNum / 10 % 10) + (firstThreeNum % 10);
+        int sumLastThreeNum = (lastThreeNum / 100) + (lastThreeNum / 10 % 10) + (lastThreeNum % 10);
+        boolean isLike = sumFirstThreeNum == sumLastThreeNum;
+        System.out.printf("%d - %s число%n", number, isLike ? "счастливое" : "не счастливое");
+        System.out.printf("Сумма цифр %03d = %d%n", firstThreeNum, sumFirstThreeNum);
+        System.out.printf("Сумма цифр %03d = %d%n", lastThreeNum, sumLastThreeNum);
+
+        System.out.println("\n8. ПРОСТОЙ ГЕНЕРАТОР ПАРОЛЯ"); 
     }
 }

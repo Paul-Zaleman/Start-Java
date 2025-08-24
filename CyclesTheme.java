@@ -1,3 +1,5 @@
+import java.util.Random;
+
 public class CyclesTheme {
     public static void main(String[] args) {
         System.out.println("1. ВЫВОД ASCII-СИМВОЛОВ");
@@ -122,6 +124,43 @@ public class CyclesTheme {
         System.out.printf("Сумма цифр %03d = %d%n", firstThreeNum, sumFirstThreeNum);
         System.out.printf("Сумма цифр %03d = %d%n", lastThreeNum, sumLastThreeNum);
 
-        System.out.println("\n8. ПРОСТОЙ ГЕНЕРАТОР ПАРОЛЯ"); 
+        System.out.println("\n8. ПРОСТОЙ ГЕНЕРАТОР ПАРОЛЯ");
+        int lengthPassword = 8;
+        Random random = new Random();
+        String password = "";
+
+        for (int i = 0; i < lengthPassword; i++) {
+            char ch = (char) random.nextInt(33, 127);
+            password += ch;
+        }
+
+        boolean hasLower = false;
+        boolean hasUpper = false;
+        boolean hasDigit = false;
+        boolean hasSpecial = false;
+        for (int i = 0; i < password.length(); i++) {
+            char symbol = password.charAt(i);
+
+            if (Character.isLowerCase(symbol)) {
+                hasLower = true;
+            } else if (Character.isUpperCase(symbol)) {
+                hasUpper = true;
+            } else if (Character.isDigit(symbol)) {
+                hasDigit = true;
+            } else {
+                hasSpecial = true;
+            }
+        }
+
+        String strength;
+        if (password.length() >= 8 && hasLower && hasUpper && hasSpecial) {
+            strength = "надёжный";
+        } else if (password.length() >= 8 && (hasUpper || hasDigit)) {
+            strength = "средний";
+        } else {
+            strength = "слабый";
+        }
+        System.out.printf("Пароль: %s%n", password);
+        System.out.printf("Надёжность: %s%n", strength);
     }
 }
